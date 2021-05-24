@@ -1,3 +1,4 @@
 node_modules/*
 config.js
 Pterodactyl-Server-Bot.code-workspace
+.vscode/*
