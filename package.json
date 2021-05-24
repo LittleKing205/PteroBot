@@ -1,7 +1,7 @@
 {
-  "name": "chaos-zocker-bot",
+  "name": "ptero-bot",
   "version": "1.0.0",
-  "description": "ChaosZocker Discord Bot",
+  "description": "This is an Discord Bot for Pterodactyl Panel.",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
