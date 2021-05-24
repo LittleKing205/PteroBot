@@ -97,27 +97,39 @@ module.exports = {
                                             })
                                     });
                             }).catch(error => {
-                                message.reply("Es wurde leider kein Server mit der angegeben ID gefunden. Lass dir sonst eine Liste deiner Server anzeigen mit:\n"+
-                                guildResults[0].prefix + "sl");
+                                const embedMsg = new Discord.MessageEmbed()
+                                    .setDescription("Es wurde leider kein Server mit der angegeben ID gefunden. Lass dir sonst eine Liste deiner Server anzeigen mit:\n"+
+                                        guildResults[0].prefix + "sl")
+                                    .setColor("#FF0000");
+                                message.channel.send(embedMsg);
                             });
                         } else {
-                            message.reply("Es wurde leier kein server gewählt. Bitte gib den Befehl mit folgendem Aufbau nochmal ein:\n"+
-                            guildResults[0].prefix + "sc <Server ID>\n\n"+
-                            "Falls du die ID deines Servers nicht kennst, kannst du dies mit folgendem Befehl abfragen:\n"+
-                            guildResults[0].prefix + "sl");
+                            const embedMsg = new Discord.MessageEmbed()
+                                .setDescription("Es wurde leier kein server gewählt. Bitte gib den Befehl mit folgendem Aufbau nochmal ein:\n"+
+                                    guildResults[0].prefix + "sc <Server ID>\n\n"+
+                                    "Falls du die ID deines Servers nicht kennst, kannst du dies mit folgendem Befehl abfragen:\n"+
+                                    guildResults[0].prefix + "sl")
+                                .setColor("#FF0000");
+                            message.channel.send(embedMsg);
                             return;
                         }
                     } else {
-                        message.reply("Upps. Ich habe leider noch nicht deinen API Token und bin somit blind. Ich habe dir eine Private Nachricht geschrieben, mit weiteren anweisungen.");
+                        const embedMsg = new Discord.MessageEmbed()
+                            .setDescription("Upps. Ich habe leider noch nicht deinen API Token und bin somit blind. Ich habe dir eine Private Nachricht geschrieben, mit weiteren anweisungen.")
+                            .setColor("#FF0000");
+                        message.channel.send(embedMsg);
                         message.author.send("Hi, Du hast versucht, ein Befehl auf dem Server \"" + message.guild.name + "\" auszuführen.\n"+
-                        "Ich konnte deinen API Key für diesen Server nicht finden. Bitte logge dich bei deinem Serverpanel ein (" + guildResults[0].adress + ") und erstelle einen \"API Key\" in den Profil Einstellungen\n" +
-                        "Sobald der Key erstellt ist, sende mir bitte folgende nachricht:\n\n"+
-                        "token " + guildId + " <API_Key>");
+                            "Ich konnte deinen API Key für diesen Server nicht finden. Bitte logge dich bei deinem Serverpanel ein (" + guildResults[0].adress + ") und erstelle einen \"API Key\" in den Profil Einstellungen\n" +
+                            "Sobald der Key erstellt ist, sende mir bitte folgende nachricht:\n\n"+
+                            "token " + guildId + " <API_Key>");
                     }
                 })
             } else {
-                message.reply("Es tut mir leid. Dieser Server wurde noch nicht konfiguriert. Dies kann mit folgendem Befehl gemacht werden:\n " + guildResults[0].prefix + "pteroconf panel <Adress>"+
-                "\n\nBitte beachte dabei, das dies nur von einem Server Administrator gemacht werden kann.")
+                const embedMsg = new Discord.MessageEmbed()
+                    .setDescription("Es tut mir leid. Dieser Server wurde noch nicht konfiguriert. Dies kann mit folgendem Befehl gemacht werden:\n " + guildResults[0].prefix + "pteroconf panel <Adress>"+
+                        "\n\nBitte beachte dabei, das dies nur von einem Server Administrator gemacht werden kann.")
+                    .setColor("#FF0000");
+                message.channel.send(embedMsg);
             }
         });
     }

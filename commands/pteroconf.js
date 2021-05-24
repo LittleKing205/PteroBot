@@ -1,6 +1,6 @@
 module.exports = {
     name: 'ptero-conf',
-    aliases: ["pc", "pteroconf"],
+    aliases: ["pc", "pteroconf", "pteroconfig"],
     description: 'Listet alle Server des Users',
     async execute(client, message, cmd, args, Discord) {
         if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Entschuldige, dieser Befehl ist nur Administratoren vorbehalten");
@@ -52,9 +52,9 @@ module.exports = {
 function sendArgsError(Discord, channel, prefix) {
     const embedMsg = new Discord.MessageEmbed()
         .setDescription("Da ist etwas schiefgelaufen. Es müssen 2 Parameter angegeben werden.\n"+
-        "Hier ein Paar Beispiele: \n\n"+
-        prefix + "pteroconf prefix <neuer Prefix>\n"+
-        prefix + "pteroconf adress <Panel Adresse>")
+            "Hier ein Paar Beispiele: \n\n"+
+            prefix + "pteroconf prefix <neuer Prefix>\n"+
+            prefix + "pteroconf adress <Panel Adresse>")
         .setColor("#FF0000");
     channel.send(embedMsg);
 }
