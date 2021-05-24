@@ -1,7 +1,7 @@
 const Nodeactyl = require("nodeactyl-beta")
 module.exports = {
-    name: 'start-server',
-    aliases: ["startserver"],
+    name: 'stop-server',
+    aliases: ["stopserver"],
     description: 'Startet einen angegebenen Server',
     async execute(client, message, cmd, args, Discord) {
         const guildId = message.guild.id;
@@ -18,7 +18,7 @@ module.exports = {
                             pteroClient.startServer(args[0])
                                 .then(started => {
                                     const embedMsg = new Discord.MessageEmbed()
-                                        .setDescription("Der Server wird nun gestartet")
+                                        .setDescription("Der Server wird nun gestoppt")
                                         .setColor("#FFFF00");
                                     message.channel.send(embedMsg);
                                 }).catch(error => {
@@ -31,7 +31,7 @@ module.exports = {
                         } else {
                             const embedMsg = new Discord.MessageEmbed()
                                 .setDescription("Es fehlt ein Parameter... Der Befehl muss wie folgt verwendet werden:\n"+
-                                    guildResults[0].prefix + "startserver <serverID>\n\n"+
+                                    guildResults[0].prefix + "stopserver <serverID>\n\n"+
                                     "Die ID kriegst du mit dem befehl \"" + guildResults[0].prefix + "serverlist\" heraus")
                                 .setColor("#FF0000");
                             message.channel.send(embedMsg);
