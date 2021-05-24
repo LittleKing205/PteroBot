@@ -14,12 +14,10 @@ module.exports = (Discord, client, message) => {
     } else {
         client.database.query("SELECT * FROM guilds WHERE id = ?", [message.guild.id], function(error, results) {
             if (error) throw error;
+            let prefix = '!';
             if (results[0].prefix) {
-                const prefix = results[0].prefix;
-            } else {
-                const prefix = '!';
+                prefix = results[0].prefix;
             }
-            const prefix = '-';
             if (!message.content.startsWith(prefix) || message.author.bot) return;
     
             const args = message.content.slice(prefix.length).split(/ +/);
