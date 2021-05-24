@@ -11,7 +11,8 @@ module.exports = {
                 message.channel.send("😂 Ich habe mich wohl falsch ausgedrückt. Bitte ersetze <API_Key> mit dem Key, den du gerade generiert hast.");
                 return;
             }
-            client.database.query("SELECT * FROM guilds WHERE id = ?", [args[0]], function(error, results, fields) {
+            client.database.query("SELECT * FROM guilds WHERE id = ?", [args[0]], function(error, results) {
+                if (error) throw error;
                 if (results.length == 0) {
                     message.channel.send("Entschulde, ich konnte den Server mit der ID \"" + args[0] + "\" leider nicht finden. Bitte überprüfe dies nochmal.");
                     return;
@@ -23,7 +24,7 @@ module.exports = {
 
                 const pteroClient = new Nodeactyl.NodeactylClient(results[0].adress, args[1]);
                 pteroClient.getAccountDetails().then(res => {
-                    client.database.query('INSERT INTO users SET ?', {guildId: args[0], userId: authorId, token: args[1]}, function (error, results) {
+                    client.database.query('INSERT INTO users SET ?', {guildId: args[0], userId: authorId, token: args[1]}, function (error) {
                         if (error) throw error;
                         message.channel.send("Wunderbar. Der Key wurde nun in deinem Account gespeichert. Du kannst nun deine Server steuern.");
                     })

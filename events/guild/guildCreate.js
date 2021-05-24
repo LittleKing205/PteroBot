@@ -50,9 +50,9 @@ module.exports = (Discord, client, guild) => {
             text: 'PteroBot was developed by LittleKing205#7824.'
         }
     }});
-    client.database.query('SELECT * FROM `guilds` WHERE `id` = ?', [guild.id], function (error, results, fields) {
+    client.database.query('SELECT * FROM `guilds` WHERE `id` = ?', [guild.id], function (error, results) {
         if (results.length == 0) {
-            client.database.query('INSERT INTO guilds SET ?', {id: guild.id, name: guild.name}, function (error, results) {
+            client.database.query('INSERT INTO guilds SET ?', {id: guild.id, name: guild.name}, function (error) {
                 if (error) throw error;
                 console.log('Logged in into new Server: ' + guild.name + ' with ID: ' + guild.id);
             })

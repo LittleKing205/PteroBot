@@ -7,10 +7,10 @@ module.exports = {
         const guildId = message.guild.id;
         const authorId = message.author.id
 
-        client.database.query("SELECT * FROM guilds where id = ?", [guildId], function(guildError, guildResults, guildFields) {
+        client.database.query("SELECT * FROM guilds where id = ?", [guildId], function(guildError, guildResults) {
             if (guildError) throw guildError;
             if (guildResults[0].adress != null) {
-                client.database.query("SELECT * FROM users where guildId = ? AND userId = ?", [guildId, authorId], async function(userError, userResults, userFields) {
+                client.database.query("SELECT * FROM users where guildId = ? AND userId = ?", [guildId, authorId], async function(userError, userResults) {
                     if (userError) throw userError;
                     if (userResults[0]) {
                         const pteroClient = new Nodeactyl.NodeactylClient(guildResults[0].adress, userResults[0].token);

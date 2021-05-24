@@ -12,7 +12,7 @@ module.exports = (Discord, client, message) => {
         };
 
     } else {
-        client.database.query("SELECT * FROM guilds WHERE id = ?", [message.guild.id], function(error, results, fields) {
+        client.database.query("SELECT * FROM guilds WHERE id = ?", [message.guild.id], function(error, results) {
             if (error) throw error;
             if (results[0].prefix) {
                 const prefix = results[0].prefix;

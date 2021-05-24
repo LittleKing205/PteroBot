@@ -8,10 +8,10 @@ module.exports = {
         const guildId = message.guild.id;
         const authorId = message.author.id
 
-        client.database.query("SELECT * FROM guilds where id = ?", [guildId], function(guildError, guildResults, guildFields) {
+        client.database.query("SELECT * FROM guilds where id = ?", [guildId], function(guildError, guildResults) {
             if (guildError) throw guildError;
             if (guildResults[0].adress != null) {
-                client.database.query("SELECT * FROM users where guildId = ? AND userId = ?", [guildId, authorId], async function(userError, userResults, userFields) {
+                client.database.query("SELECT * FROM users where guildId = ? AND userId = ?", [guildId, authorId], async function(userError, userResults) {
                     if (userError) throw userError;
                     if (userResults[0]) {
                         if (args[0]) {
@@ -21,9 +21,9 @@ module.exports = {
                                 const embedMsg = new Discord.MessageEmbed()
                                     .setTitle(server.name)
                                     .addFields(
-                                        {name: "RAM", value: niceBytes(usages.resources.memory_bytes) + " / " + niceMegaBytes(server.limits.memory), inline: true},
+                                        {name: "RAM", value: niceBytes(usages.resources.memory_bytes) + " / " + niceBytes(server.limits.memory, 2), inline: true},
                                         {name: "CPU", value: usages.resources.cpu_absolute + "%", inline: true},
-                                        {name: "Speicher", value: niceBytes(usages.resources.disk_bytes) + " / " + niceMegaBytes(server.limits.disk), inline: true},
+                                        {name: "Speicher", value: niceBytes(usages.resources.disk_bytes) + " / " + niceBytes(server.limits.disk, 2), inline: true},
                                         {name: "\u200B", value: "\u200B"},
                                         {name: "Aktueller Status", value: usages.current_state},
                                         {name: "\u200B", value: "\u200B"},
@@ -123,18 +123,9 @@ module.exports = {
     }
 }
 
-function niceBytes(x){
+function niceBytes(x, start = 0){
     const units = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-    let l = 0, n = parseInt(x, 10) || 0;
-    while(n >= 1024 && ++l){
-        n = n/1024;
-    }
-    return(n.toFixed(n < 10 && l > 0 ? 1 : 0) + ' ' + units[l]);
-}
-
-function niceMegaBytes(x){
-    const units = ['MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-    let l = 0, n = parseInt(x, 10) || 0;
+    let l = start, n = parseInt(x, 10) || 0;
     while(n >= 1024 && ++l){
         n = n/1024;
     }
