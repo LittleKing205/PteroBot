@@ -18,7 +18,7 @@ module.exports = (Discord, client, guild) => {
                 value: 'Zeigt eine Liste aller Server an, die dem User zugewiesen sind'
             },
             {
-                name: 'servercontrol',
+                name: 'servercontrol <serverId>',
                 value: 'Zeigt eine simple oberfläche vom Server an. Inklusive ein paar Statistiken. Zudem kann der Server mit Reactions gestartet oder gestoppt weren'
             },
             {
