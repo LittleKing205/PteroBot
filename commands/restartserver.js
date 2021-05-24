@@ -1,8 +1,8 @@
 const Nodeactyl = require("nodeactyl-beta")
 module.exports = {
-    name: 'stop-server',
-    aliases: ["stopserver"],
-    description: 'Stoppt einen angegebenen Server',
+    name: 'restart-server',
+    aliases: ["restartserver"],
+    description: 'Startet einen angegebenen Server neu',
     async execute(client, message, cmd, args, Discord) {
         const guildId = message.guild.id;
         const authorId = message.author.id
@@ -15,10 +15,10 @@ module.exports = {
                     if (userResults[0]) {
                         if (args[0]) {
                             const pteroClient = new Nodeactyl.NodeactylClient(guildResults[0].adress, userResults[0].token);
-                            pteroClient.stopServer(args[0])
+                            pteroClient.restartServer(args[0])
                                 .then(started => {
                                     const embedMsg = new Discord.MessageEmbed()
-                                        .setDescription("Der Server wird nun gestoppt")
+                                        .setDescription("Der Server wird nun neugestartet")
                                         .setColor("#FFFF00");
                                     message.channel.send(embedMsg);
                                 }).catch(error => {
@@ -31,7 +31,7 @@ module.exports = {
                         } else {
                             const embedMsg = new Discord.MessageEmbed()
                                 .setDescription("Es fehlt ein Parameter... Der Befehl muss wie folgt verwendet werden:\n"+
-                                    guildResults[0].prefix + "stopserver <serverID>\n\n"+
+                                    guildResults[0].prefix + "restartserver <serverID>\n\n"+
                                     "Die ID kriegst du mit dem befehl \"" + guildResults[0].prefix + "serverlist\" heraus")
                                 .setColor("#FF0000");
                             message.channel.send(embedMsg);
