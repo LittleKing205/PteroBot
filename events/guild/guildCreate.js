@@ -7,7 +7,8 @@ module.exports = (Discord, client, guild) => {
             }
         }
     });
-    defaultChannel.send(`Hallo hier ist PteroBot. Mit mir können deine User schnell und einfach Ihre Server steuern. Anbei sende ich noch eine liste mit meinen Befehlen.`, {
+    defaultChannel.send(`Hallo hier ist PteroBot. Mit mir können deine User schnell und einfach Ihre Server steuern. Anbei sende ich noch eine liste mit meinen Befehlen.\n`+
+        "Bitte bedenke, dass ich noch konfiguriert werden muss, bevor deine User mich nutzen kann.", {
     embed:{
         title: 'Befehlsliste',
         color: 0x2471a3, 

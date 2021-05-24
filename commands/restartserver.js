@@ -24,7 +24,7 @@ module.exports = {
                                 }).catch(error => {
                                     const embedMsg = new Discord.MessageEmbed()
                                         .setDescription("Der angegebene Server konnte leider in deinem Account nicht gefunen werden. Schau dir deine Server mit folgendem Befehl an:\n"+
-                                        guildResults[0].prefix + "serverlist")
+                                            guildResults[0].prefix + "serverlist")
                                         .setColor("#FF0000");
                                     message.channel.send(embedMsg);
                                 });

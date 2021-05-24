@@ -24,7 +24,7 @@ module.exports = {
                                 }).catch(error => {
                                     const embedMsg = new Discord.MessageEmbed()
                                         .setDescription("Der angegebene Server konnte leider in deinem Account nicht gefunen werden. Schau dir deine Server mit folgendem Befehl an:\n"+
-                                        guildResults[0].prefix + "serverlist")
+                                            guildResults[0].prefix + "serverlist")
                                         .setColor("#FF0000");
                                     message.channel.send(embedMsg);
                                 });
@@ -38,8 +38,8 @@ module.exports = {
                         }
                     } else {
                         const embedMsg = new Discord.MessageEmbed()
-                                .setDescription("Upps. Ich habe leider noch nicht deinen API Token und bin somit blind. Ich habe dir eine Private Nachricht geschrieben, mit weiteren anweisungen.")
-                                .setColor("#FF0000");
+                            .setDescription("Upps. Ich habe leider noch nicht deinen API Token und bin somit blind. Ich habe dir eine Private Nachricht geschrieben, mit weiteren anweisungen.")
+                            .setColor("#FF0000");
                         message.channel.send(embedMsg);
                         message.author.send("Hi, Du hast versucht, ein Befehl auf dem Server \"" + message.guild.name + "\" auszuführen.\n"+
                             "Ich konnte deinen API Key für diesen Server nicht finden. Bitte logge dich bei deinem Serverpanel ein (" + guildResults[0].adress + ") und erstelle einen \"API Key\" in den Profil Einstellungen\n" +

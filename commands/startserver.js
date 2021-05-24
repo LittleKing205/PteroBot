@@ -38,13 +38,13 @@ module.exports = {
                         }
                     } else {
                         const embedMsg = new Discord.MessageEmbed()
-                                .setDescription("Upps. Ich habe leider noch nicht deinen API Token und bin somit blind. Ich habe dir eine Private Nachricht geschrieben, mit weiteren anweisungen.")
-                                .setColor("#FF0000");
+                            .setDescription("Upps. Ich habe leider noch nicht deinen API Token und bin somit blind. Ich habe dir eine Private Nachricht geschrieben, mit weiteren anweisungen.")
+                            .setColor("#FF0000");
                         message.channel.send(embedMsg);
                         message.author.send("Hi, Du hast versucht, ein Befehl auf dem Server \"" + message.guild.name + "\" auszuführen.\n"+
-                        "Ich konnte deinen API Key für diesen Server nicht finden. Bitte logge dich bei deinem Serverpanel ein (" + guildResults[0].adress + ") und erstelle einen \"API Key\" in den Profil Einstellungen\n" +
-                        "Sobald der Key erstellt ist, sende mir bitte folgende nachricht:\n\n"+
-                        "token " + guildId + " <API_Key>");
+                            "Ich konnte deinen API Key für diesen Server nicht finden. Bitte logge dich bei deinem Serverpanel ein (" + guildResults[0].adress + ") und erstelle einen \"API Key\" in den Profil Einstellungen\n" +
+                            "Sobald der Key erstellt ist, sende mir bitte folgende nachricht:\n\n"+
+                            "token " + guildId + " <API_Key>");
                     }
                 })
             } else {

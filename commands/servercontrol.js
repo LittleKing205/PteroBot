@@ -107,7 +107,7 @@ module.exports = {
                             const embedMsg = new Discord.MessageEmbed()
                                 .setDescription("Es wurde leier kein server gewählt. Bitte gib den Befehl mit folgendem Aufbau nochmal ein:\n"+
                                     guildResults[0].prefix + "sc <Server ID>\n\n"+
-                                    "Falls du die ID deines Servers nicht kennst, kannst du dies mit folgendem Befehl abfragen:\n"+
+                                        "Falls du die ID deines Servers nicht kennst, kannst du dies mit folgendem Befehl abfragen:\n"+
                                     guildResults[0].prefix + "sl")
                                 .setColor("#FF0000");
                             message.channel.send(embedMsg);
