@@ -1,6 +1,6 @@
 module.exports = {
-    name: 'pteroconf',
-    aliases: ["pc", "ptero-conf"],
+    name: 'ptero-conf',
+    aliases: ["pc", "pteroconf"],
     description: 'Listet alle Server des Users',
     async execute(client, message, cmd, args, Discord) {
         if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Entschuldige, dieser Befehl ist nur Administratoren vorbehalten");
