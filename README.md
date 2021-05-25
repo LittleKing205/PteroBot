@@ -34,6 +34,7 @@ All DM Commands are used without any prefix.
 
 ## TODOS
 * Add multilanugage support (i18n)
+* Add abtility to React on Serverlist
 * Test the Bot
 
 ## Contribution
