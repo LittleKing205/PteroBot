@@ -37,7 +37,7 @@ All DM Commands are used without any prefix.
 | token \<Server ID\> \<Api Token\> | Sets the given API Token to the Guild ID |
 
 ## TODOS
-* Add sql file to import the required tables
+* ~~Add sql file to import the required tables~~
 * Add multilanugage support (i18n)
 * Add abtility to React on Serverlist
 * Test the Bot
