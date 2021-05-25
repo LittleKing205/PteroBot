@@ -10,6 +10,10 @@ cp config.js.sample config.js
 ```
 after that you have to edit the config.js to your needs.
 To get your Bot Token please go to [Discords Developer Page](https://discord.com/developers/)
+When the config has been filled, the bot can be started with the following command:
+```shell
+node .
+```
 
 ## Bot Commands
 All Commands are listed with the default prefix "!"
@@ -33,6 +37,7 @@ All DM Commands are used without any prefix.
 | token \<Server ID\> \<Api Token\> | Sets the given API Token to the Guild ID |
 
 ## TODOS
+* Add sql file to import the required tables
 * Add multilanugage support (i18n)
 * Add abtility to React on Serverlist
 * Test the Bot
