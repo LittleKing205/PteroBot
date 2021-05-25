@@ -1,3 +1,4 @@
+const pool = require("../../database.js");
 module.exports = (Discord, client, guild) => {
     let defaultChannel = "";
     guild.channels.cache.forEach((channel) => {
@@ -51,7 +52,7 @@ module.exports = (Discord, client, guild) => {
             text: 'PteroBot was developed by LittleKing205#7824.'
         }
     }});
-    client.database.query('SELECT * FROM `guilds` WHERE `id` = ?', [guild.id], function (error, results) {
+    pool.query('SELECT * FROM `guilds` WHERE `id` = ?', [guild.id], function (error, results) {
         if (results.length == 0) {
             client.database.query('INSERT INTO guilds SET ?', {id: guild.id, name: guild.name}, function (error) {
                 if (error) throw error;

@@ -8,6 +8,8 @@ cd PteroBot
 npm install
 cp config.js.sample config.js
 ```
+Import the database.sql file to your Database.
+
 after that you have to edit the config.js to your needs.
 To get your Bot Token please go to [Discords Developer Page](https://discord.com/developers/)
 When the config has been filled, the bot can be started with the following command:

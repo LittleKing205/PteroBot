@@ -1,3 +1,4 @@
+const pool = require("../../database.js");
 module.exports = (Discord, client, message) => {
     if (message.channel.type === 'dm') {
         if (message.author.bot) return;
@@ -12,7 +13,7 @@ module.exports = (Discord, client, message) => {
         };
 
     } else {
-        client.database.query("SELECT * FROM guilds WHERE id = ?", [message.guild.id], function(error, results) {
+        pool.query("SELECT * FROM guilds WHERE id = ?", [message.guild.id], function(error, results) {
             if (error) throw error;
             let prefix = '!';
             if (results[0].prefix) {

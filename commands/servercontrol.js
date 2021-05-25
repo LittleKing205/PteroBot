@@ -1,3 +1,4 @@
+const pool = require("../database.js");
 const { NodeactylClient } = require("nodeactyl-beta");
 const Nodeactyl = require("nodeactyl-beta")
 module.exports = {
@@ -8,10 +9,10 @@ module.exports = {
         const guildId = message.guild.id;
         const authorId = message.author.id
 
-        client.database.query("SELECT * FROM guilds where id = ?", [guildId], function(guildError, guildResults) {
+        pool.query("SELECT * FROM guilds where id = ?", [guildId], function(guildError, guildResults) {
             if (guildError) throw guildError;
             if (guildResults[0].adress != null) {
-                client.database.query("SELECT * FROM users where guildId = ? AND userId = ?", [guildId, authorId], async function(userError, userResults) {
+                pool.query("SELECT * FROM users where guildId = ? AND userId = ?", [guildId, authorId], async function(userError, userResults) {
                     if (userError) throw userError;
                     if (userResults[0]) {
                         if (args[0]) {
